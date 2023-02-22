@@ -53,8 +53,21 @@ print(lisa_account.get_firstname())
 lisa_account.lastname = "Simpson"
 print(lisa_account.lastname)
 
-lisa_savings_account = SavingsAccount()
-marge_savings_account = SavingsAccount()
+# create savings accounts
+lisa_savings_account = SavingsAccount(1000, 0.1)
+marge_savings_account = SavingsAccount(200, 2.3)
 
+# set personal info on Marge's account
+# using setter
 marge_savings_account.set_firstname("Marge")
+# using property
 marge_savings_account.lastname = "Simpson"
+
+# print the interest rate
+print(marge_savings_account.get_interest_rate())
+
+# set the interest rate to something different
+marge_savings_account.set_interest_rate(4)
+
+# print the interest rate again to prove it has changed
+print(marge_savings_account.get_interest_rate())
