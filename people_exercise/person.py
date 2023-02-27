@@ -6,4 +6,6 @@ class Person:
         self._firstname = firstname
         self._lastname = lastname
 
-
+    # overload the str method for this object
+    def __str__(self):
+        return f"\nName: {self._firstname} {self._lastname}"

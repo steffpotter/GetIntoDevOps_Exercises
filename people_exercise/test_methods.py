@@ -1,30 +1,43 @@
 from customer import Customer
 from employee import Employee
 
-# create a couple of employees
-employee_one = Employee("One", "Employee", 1122)
-employee_two = Employee("Two", "Employee", 1123)
 
+# method to print a customer statement
+def print_statement(customer):
+    print(f"\n*** Customer Statement ***")
+    print(str(customer))
+    print(f"Remaining Credit: {customer.get_credit_balance()}")
+
+
+# method to print an employee payslip
+def print_payslip(employee, hours_worked):
+    print(f"\n*** Employee Payslip ***")
+    print(str(employee))
+    print(f"Hourly rate: {employee.get_hourly_rate()}")
+    print(f"Salary: {employee.calculate_salary(hours_worked)}")
+
+
+# create a couple of employees
+employee_one = Employee("One", "Employee", 1122, 4.5)
+employee_two = Employee("Two", "Employee", 1123, 7.75)
+
+# create a couple of customers
 customer_one = Customer("One", "Customer", 2131)
 customer_two = Customer("Two", "Customer", 2131)
 
-employee_one.set_hourly_rate(4.5)
-employee_two.set_hourly_rate(7.5)
-
-employee_one_salary = employee_one.calculate_salary(37.5)
-employee_two_salary = employee_two.calculate_salary(20)
-
+# give the customers a credit balance
 customer_one.set_credit_balance(500)
 customer_two.set_credit_balance(1500)
 
+# make a purchase for each customer
 customer_one.make_purchase(45)
 customer_two.make_purchase(120)
 
-customer_one_balance = customer_one.get_credit_balance()
-customer_two_balance = customer_two.get_credit_balance()
+# print employee payslips
+print_payslip(employee_one, 37.5)
+print_payslip(employee_two, 20)
 
-employee_one.print_payslip()
-employee_two.print_payslip()
+# print customer statements
+print_statement(customer_one)
+print_statement(customer_two)
 
-customer_one.print_statement()
-customer_two.print_statement()

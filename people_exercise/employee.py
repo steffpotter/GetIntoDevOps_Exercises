@@ -5,22 +5,20 @@ from person import Person
 class Employee(Person):
 
     # constructor
-    def __init__(self, firstname, lastname, employee_number):
+    def __init__(self, firstname, lastname, employee_number, hourly_rate):
         super().__init__(firstname, lastname)
-        self._salary = None
-        self._hourly_rate = None
+        self._hourly_rate = hourly_rate
         self._employee_number = employee_number
 
-    # method to set the hourly rate
-    def set_hourly_rate(self, hourly_rate):
-        self._hourly_rate = hourly_rate
+    # find out the balance
+    def get_hourly_rate(self):
+        return self._hourly_rate
 
     # method to calculate salary
     def calculate_salary(self, hours_done):
-        self._salary = self._hourly_rate * hours_done
+        return self._hourly_rate * hours_done
 
-    # method to print payslip
-    def print_payslip(self):
-        print(f"*** Payslip for Employee {self._employee_number} ***")
-        print(f"Hourly rate: {self._hourly_rate}")
-        print(f"Salary: {self._salary}")
+    # overload the str method for this object
+    # calls the __str__ method from the base class
+    def __str__(self):
+        return f"Employee Number: {self._employee_number}" + super().__str__()
