@@ -1,4 +1,5 @@
 from person import Person
+from insufficientFundsException import InsufficientFundsException
 
 
 # define subclass called Customer which inherits from Person
@@ -20,7 +21,12 @@ class Customer(Person):
 
     # deduct a purchase from the credit balance
     def make_purchase(self, purchase_amount):
-        self._credit_balance -= purchase_amount
+        if purchase_amount > self._credit_balance:
+            raise InsufficientFundsException("You don't have enough to do that")
+        else:
+            self._credit_balance -= purchase_amount
+
+    # throw an exception if the purchase is greater than the credit balance
 
     # overload the str method for this object
     # calls the __str__ method from the base class

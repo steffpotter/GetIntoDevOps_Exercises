@@ -1,5 +1,5 @@
 from person import Person
-
+from workedTooMuchException import WorkedTooMuchException
 
 # define subclass called Employee which inherits from Person
 class Employee(Person):
@@ -16,7 +16,13 @@ class Employee(Person):
 
     # method to calculate salary
     def calculate_salary(self, hours_done):
-        return self._hourly_rate * hours_done
+        if hours_done > 37.5:
+            raise WorkedTooMuchException(hours_done)
+        else:
+            return self._hourly_rate * hours_done
+
+    # throw an exception if the number of hours is greater than 37.5
+    # as that should be the most that anyone should work in one week
 
     # overload the str method for this object
     # calls the __str__ method from the base class
