@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+<p>These are a few of my favourite things...</p>
+
+<ul>
+    {% for fave in favourite_things %}
+        <li>{{fave}}</li>
+    {% endfor %}
+</ul>
+
+<img src="https://i0.wp.com/cyprusscene.com/wp-content/uploads/2020/01/My-favourite-things-image-1.jpg?w=600&ssl=1" />
+
+{% endblock %}
